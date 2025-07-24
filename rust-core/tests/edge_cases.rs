@@ -1,4 +1,4 @@
-use pinniped_core::document::Document;
+use pinniped_core::Document;
 
 #[test]
 fn malformed_links() {

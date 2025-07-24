@@ -1,4 +1,4 @@
-use pinniped_core::document::Document;
+use pinniped_core::Document;
 
 #[test]
 fn round_trip_paragraph_and_table() {
@@ -194,7 +194,7 @@ fn nested_formatting_with_code() {
 
 #[test]
 fn debug_triple_star_decisions() {
-    use pinniped_core::inline::{simulate_balance_debug};
+    use pinniped_core::inline::simulate_balance_debug;
     
     // Test case 1: Should be ** + * (bold containing italic)
     let markdown1 = "***bold and italic* just bold**";

@@ -1,7 +1,7 @@
 use crate::block::Block;
 use crate::error::Error;
 
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize)]
 pub struct Document {
     pub blocks: Vec<Block>,
 }
