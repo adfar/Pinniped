@@ -2,15 +2,89 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Pinniped Web Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pinniped Markdown Parser - Interactive Test</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦭</text></svg>">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Pinniped Markdown Parser Test</h1>
-    <textarea id="markdown-input" placeholder="Enter markdown here"></textarea>
-    <button id="parse-button">Parse</button>
-    <h2>Round Trip Output</h2>
-    <pre id="output"></pre>
+    <header>
+        <h1>🦭 Pinniped Markdown Parser</h1>
+        <p>Test the Rust-powered markdown parser with real-time preview</p>
+    </header>
+
+    <main class="container">
+        <div class="editor-section">
+            <div class="panel">
+                <h2>📝 Markdown Input</h2>
+                <textarea id="markdown-input" placeholder="Type your markdown here...
+
+Try these examples:
+# Header 1
+## Header 2
+
+This is **bold** and *italic* text.
+
+- List item 1  
+- List item 2
+
+```rust
+fn hello() {
+    println!(&quot;Hello, world!&quot;);
+}
+```
+
+> This is a blockquote
+
+[Link to Google](https://google.com)
+
+|Name|Age|
+|---|---|
+|John|25|
+|Jane|30|"></textarea>
+                <div class="controls">
+                    <button id="parse-button">🔄 Parse & Preview</button>
+                    <button id="clear-button">🗑️ Clear</button>
+                    <button id="load-sample">📄 Load Sample</button>
+                </div>
+            </div>
+
+            <div class="panel">
+                <h2>👀 Rendered Preview</h2>
+                <div id="preview" class="preview-area"></div>
+            </div>
+        </div>
+
+        <div class="output-section">
+            <div class="panel">
+                <h2>🔄 Round-trip Output</h2>
+                <p class="help-text">This shows the markdown after parsing → AST → markdown conversion</p>
+                <pre id="output"></pre>
+            </div>
+
+            <div class="panel">
+                <h2>🧪 Parser Debug Info</h2>
+                <div id="debug-info">
+                    <div class="stat">
+                        <label>Parse Time:</label>
+                        <span id="parse-time">-</span>
+                    </div>
+                    <div class="stat">
+                        <label>Character Count:</label>
+                        <span id="char-count">0</span>
+                    </div>
+                    <div class="stat">
+                        <label>Block Count:</label>
+                        <span id="block-count">0</span>
+                    </div>
+                    <div class="stat">
+                        <label>Perfect Round-trip:</label>
+                        <span id="roundtrip-status">✅</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
     <script type="module" src="main.js"></script>
 </body>
